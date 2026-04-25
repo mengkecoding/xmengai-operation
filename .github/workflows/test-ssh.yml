@@ -1,0 +1,21 @@
+name: Test SSH Connection
+
+on:
+  workflow_dispatch: # 允许你在 GitHub 页面上点击按钮手动触发测试
+
+jobs:
+  test-connection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 测试 SSH 连接
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          script: |
+            echo "你好，GitHub！我是你的服务器。"
+            echo "当前登录用户是: $(whoami)"
+            echo "服务器运行时间: $(uptime)"
+            docker --version
