@@ -1,4 +1,4 @@
-name: Deploy Blog
+name: Deploy Blog V2
 on:
   push:
     branches: [main]
@@ -7,24 +7,22 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  build-and-deploy:
+  # --- 任务 1：部署到云服务器 (Primary) ---
+  deploy-to-server:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'npm' # 开启缓存，加速后续部署
-
-      - name: Install and Build
-        # 使用 npm ci 替代 npm install，确保环境一致性
+          cache: 'npm'
+      
+      - name: Build for Server
         run: |
           npm ci
           npm run build
-      
-      - name: Deploy
+          
+      - name: Sync to Cloud Server
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
@@ -32,3 +30,32 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/opt/blog/html"
+
+  # --- 任务 2：部署到 GitHub Pages (Secondary) ---
+  deploy-to-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      
+      - name: Build for Pages
+        # 我们在这里通过 VitePress 命令行参数强行注入 base 路径
+        # 这样就不需要修改 config.mjs 里的代码了
+        run: |
+          npm ci
+          npx vitepress build --base /xmeng-ai-blog/
+          
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
+          
+      - name: Activate GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
