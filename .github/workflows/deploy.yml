@@ -50,6 +50,7 @@ jobs:
         run: |
           npm ci
           npx vitepress build --base /xmeng-ai-blog/
+          touch .vitepress/dist/.nojekyll
           
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
