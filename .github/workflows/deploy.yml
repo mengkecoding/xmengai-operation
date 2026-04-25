@@ -7,24 +7,20 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  build-and-deploy:
+  # 任务 1：部署到你的云服务器 (保持 base = '/')
+  build-and-deploy-server:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'npm' # 开启缓存，加速后续部署
-
-      - name: Install and Build
-        # 使用 npm ci 替代 npm install，确保环境一致性
+          cache: 'npm'
+      - name: Build for Server
         run: |
           npm ci
-          npm run build
-      
-      - name: Deploy
+          npm run build # 此时 GITHUB_PAGES 变量为空，base 为 '/'
+      - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
@@ -32,3 +28,29 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/opt/blog/html"
+
+  # 任务 2：部署到 GitHub Pages (设置 base = '/xmeng-ai-blog/')
+  build-and-deploy-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Build for Pages
+        env:
+          GITHUB_PAGES: true # 关键：注入变量，让 VitePress 知道这是给 Pages 打包
+        run: |
+          npm ci
+          npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
