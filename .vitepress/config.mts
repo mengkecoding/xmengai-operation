@@ -43,6 +43,15 @@ export default defineConfig({
             { text: 'Prompt 工程进阶', link: '/agent/prompts' },
             { text: 'RAG 检索增强实现', link: '/agent/rag' }
           ]
+        },
+        {
+          text: 'AI Agent 实验室',
+          collapsed: false,
+          items: [
+            { text: '什么是 Agent？', link: '/agent/intro' },
+            { text: 'Prompt 工程进阶', link: '/agent/prompts' },
+            { text: 'RAG 检索增强实现', link: '/agent/rag' }
+          ]
         }
       ],
       '/dev/': [
