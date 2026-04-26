@@ -65,8 +65,8 @@ AI 可能会以极其自信的语气编造事实（尤其是复杂的数学计�
 2.  **变量配置：** 在系统环境变量中设置 `DEEPSEEK_API_KEY`。
 3.  **库安装：** `pip install openai`（DeepSeek 兼容 OpenAI SDK）。
 
-![](/agent/大模型应用开发极简入门/1.png)
-![](/agent/大模型应用开发极简入门/2.png)
+![](/agent/AgentGuide/1.png)
+![](/agent/AgentGuide/2.png)
 
 
 ### 7.2 HelloWorld应用
@@ -90,7 +90,7 @@ print(response.choices[0].message.content)
 
 输出的结果为：
 
-![](/agent/大模型应用开发极简入门/3.png)
+![](/agent/AgentGuide/3.png)
 
 
 ### 7.3 新闻稿生成器应用
@@ -131,11 +131,11 @@ print(
 
 执行过程中实际构造的提示词如下：
 
-![](/agent/大模型应用开发极简入门/4.png)
+![](/agent/AgentGuide/4.png)
 
 最终的输出结果：
 
-![](/agent/大模型应用开发极简入门/5.png)
+![](/agent/AgentGuide/5.png)
 
 
 ## 📚 术语简表

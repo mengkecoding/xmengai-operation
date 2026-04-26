@@ -16,18 +16,17 @@ export default defineConfig({
       { 
         text: '🤖 AI Agent', 
         items: [
-          { text: '入门指南', link: '/agent/大模型应用开发极简入门' },
-          { text: 'LangChain 实战', link: '/agent/langchain' },
-          { text: '多智能体协同', link: '/agent/multi-agent' }
+          { text: '入门指南', link: '/agent/AgentGuide' },
+          //{ text: 'Agent 实战', link: '/agent/CozeChatBot' },
         ]
       },
       { 
         text: '💻 全栈之路', 
         items: [
-          { text: '博客', link: '/dev/VitePressBuildBlog' },
-          { text: '后端架构 (Java/Python)', link: '/dev/backend' },
-          { text: '前端前沿 (Vue/React)', link: '/dev/frontend' },
-          { text: '运维与部署 (Docker)', link: '/dev/ops' }
+          { text: '博客搭建', link: '/dev/VitePressBlog' },
+          //{ text: '后端架构 (Java/Python)', link: '/dev/backend' },
+          //{ text: '前端前沿 (Vue/React)', link: '/dev/frontend' },
+          //{ text: '运维与部署 (Docker)', link: '/dev/ops' }
         ]
       },
       { text: '🎓 求职八股', link: '/interview/index' }
@@ -41,37 +40,28 @@ export default defineConfig({
           collapsed: false,
           items: [
             // { text: '什么是 Agent？', link: '/agent/intro' },
-            { text: '🔑 大模型开发：万能钥匙', link: '/agent/大模型应用开发极简入门' },
+            { text: '🔑 大模型开发：万能钥匙', link: '/agent/AgentGuide' },
+            { text: '🪄 提示工程：听懂心声', link: '/agent/PromptGuide' },
             { text: '🎙️ Coze 实战：赋予灵魂', link: '/agent/CozeChatBot' },
-            { text: '🪄 提示工程：听懂心声', link: '/agent/prompt入门' },
-            { text: 'Prompt 工程进阶', link: '/agent/prompts' },
-            { text: 'RAG 检索增强实现', link: '/agent/rag' }
+            { text: '🏰 Dify 部署：本地工坊', link: '/agent/InstallDify' },
+            { text: '⏳ Dify 实战：文献助手', link: '/agent/DifyReadPaper' },
+            
+            
           ]
         },
-        {
-          text: 'AI Agent 实验室',
-          collapsed: false,
-          items: [
-            { text: '什么是 Agent？', link: '/agent/intro' },
-            { text: 'Prompt 工程进阶', link: '/agent/prompts' },
-            { text: 'RAG 检索增强实现', link: '/agent/rag' }
-          ]
-        }
+        
       ],
       '/dev/': [
         {
-          text: '博客',
+          text: '博客搭建',
           items: [
-            { text: 'vitepress搭建博客', link: '/dev/VitePressBuildBlog' },
+            { text: '🗼 VitePress：搭建灯塔', link: '/dev/VitePressBlog' },
+            { text: '🕊️ 个人博客：自动部署', link: '/dev/VitePressBlogAuto' },
+           
+
           ]
         },
-        {
-          text: '全栈实战营',
-          items: [
-            { text: '环境搭建', link: '/dev/setup' },
-            { text: '工程化实践', link: '/dev/engineering' }
-          ]
-        }
+        
       ]
     },
 
