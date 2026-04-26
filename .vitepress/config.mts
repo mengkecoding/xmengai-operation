@@ -24,6 +24,7 @@ export default defineConfig({
       { 
         text: '💻 全栈之路', 
         items: [
+          { text: '博客', link: '/dev/VitePressBuildBlog' },
           { text: '后端架构 (Java/Python)', link: '/dev/backend' },
           { text: '前端前沿 (Vue/React)', link: '/dev/frontend' },
           { text: '运维与部署 (Docker)', link: '/dev/ops' }
@@ -55,6 +56,12 @@ export default defineConfig({
         }
       ],
       '/dev/': [
+        {
+          text: '博客',
+          items: [
+            { text: 'vitepress搭建博客', link: '/dev/VitePressBuildBlog' },
+          ]
+        },
         {
           text: '全栈实战营',
           items: [

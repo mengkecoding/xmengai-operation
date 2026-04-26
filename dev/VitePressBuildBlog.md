@@ -258,33 +258,6 @@ server {
         return 301 https://$host$request_uri;
     }
 }
-
-# HTTPS 配置
-server {
-    listen 443 ssl;
-    server_name xmengai.com www.xmengai.com; # 这里替换为你的域名
-
-    # 证书文件路径 (这些文件我们将通过 certbot 生成)
-    ssl_certificate /etc/nginx/cert/live/xmengai.com/fullchain.pem;
-    ssl_certificate_key /etc/nginx/cert/live/xmengai.com/privkey.pem;
-
-    # 安全性能优化
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers HIGH:!aNULL:!MD5;
-    ssl_prefer_server_ciphers on;
-    ssl_session_cache shared:SSL:10m;
-    ssl_session_timeout 10m;
-
-    location / {
-        root /usr/share/nginx/html;
-        index index.html;
-        try_files $uri $uri/ =404;
-    }
-
-    # 开启 Gzip 压缩，提升加载速度
-    gzip on;
-    gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
-}
 ```
 #### 编写 Docker Compose
 在 /opt/blog 目录下创建 docker-compose.yaml 文件：
@@ -315,18 +288,82 @@ networks:
 ```
 #### 启动服务
 
+```shell
 cd /opt/blog
 docker compose up -d
+```
+## 四、GitHub 与云服务器连接测试指南（可选）
+
+#### 在本地项目中创建测试文件
+在你的博客项目根目录下，确保存在 `.github/workflows/test-ssh.yml` 文件。
+```shell
+name: Test SSH Connection
+
+on:
+  workflow_dispatch: # 允许你在 GitHub 页面上点击按钮手动触发测试
+
+jobs:
+  test-connection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 测试 SSH 连接
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          script: |
+            echo "你好，GitHub！我是你的服务器。"
+            echo "当前登录用户是: $(whoami)"
+            echo "服务器运行时间: $(uptime)"
+            docker --version
+```
+
+#### 提交代码到 GitHub 
+请按照以下顺序执行命令。
+```shell
+# 1. 初始化 (如果还没做过)
+git init
+
+# 2. 重新关联远程仓库为 "origin" (这样比较标准，方便记忆)
+# 先删掉刚才那个名字比较长的，换成标准的 origin
+git remote remove xmeng-ai-blog 2>/dev/null
+git remote add origin [https://github.com/mengkecoding/xmeng-ai-blog.git](https://github.com/mengkecoding/xmeng-ai-blog.git)
+
+# 3. 确保本地有文件并提交 (关键！必须先 commit 才能 push)
+git add .
+git commit -m "chore: 准备测试 SSH 连接"
+
+# 4. 确保本地分支名字叫 main
+git branch -M main
+
+# 5. 推送到 GitHub
+git push -u origin main
+```
+#### 在 GitHub 页面手动运行测试
+1. 打开你的 GitHub 仓库页面 `mengkecoding/xmeng-ai-blog`（**此处改为你的GitHub仓库**）。
+
+2. 点击顶部的 `Actions` 标签。
+
+3. 在左侧菜单中点击 `Test SSH Connection`。
+
+4. 点击右侧的 `Run workflow` 下拉按钮，然后点击绿色的 `Run workflow` 按钮。
+
+#### 观察结果
+**如果圆圈变绿** (Success)：恭喜你！GitHub 已经成功通过 SSH 密钥登录到了你的服务器。
+
+**如果圆圈变红** (Failure)：请点击进入查看日志，看看是 `Connection timeout`（网络/防火墙问题）还是 `Permission denied`（密钥配置问题）。
 
 
 ## 四、日常更新流程
 
 以后你只需要做三件事：
 
-写文章：在本地 docs 目录下写 Markdown 文件。
+写文章：在本地 `docs` 目录下写 Markdown 文件。
 
-提交：git add . -> git commit -m "更新内容"。
+提交：`git add . -> git commit -m "更新内容"`。
 
-发布：git push。
+发布：`git push`。
 
-GitHub Actions 会自动帮你完成打包、传输、部署的全过程。
+`GitHub Actions` 会自动帮你完成打包、传输、部署的全过程。
