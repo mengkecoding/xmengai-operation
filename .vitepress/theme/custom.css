@@ -1,15 +1,15 @@
 /* ============================================================
-   1. 基础变量定义：支持双色切换
+   1. 现代简约变量系统 (基于 Zinc 风格)
    ============================================================ */
 
 :root {
-  /* 品牌主色：紫罗兰到蓝色的渐变色阶 */
+  /* 品牌色：现代电光紫 */
   --vp-c-brand-1: #8b5cf6;
-  --vp-c-brand-2: #7c3aed;
-  --vp-c-brand-3: #6d28d9;
-  --vp-c-brand-next: #3b82f6; 
+  --vp-c-brand-2: #a78bfa;
+  --vp-c-brand-3: #7c3aed;
+  --vp-c-brand-next: #06b6d4; 
 
-  /* --- 亮色模式变量 (默认) --- */
+  /* --- 亮色模式 (Studio White) --- */
   --vp-c-bg: #ffffff;
   --vp-c-bg-soft: #f8fafc;
   --vp-c-bg-mute: #f1f5f9;
@@ -17,9 +17,16 @@
   --vp-c-text-2: #475569;
   --vp-c-text-3: #64748b;
   --vp-c-border: #e2e8f0;
+  
+  /* 代码块专用背景 */
+  --vp-code-block-bg: #f6f8fa; 
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 
-/* --- 深色模式变量 (当 html 拥有 .dark 类时生效) --- */
+/* --- 深色模式 (Midnight Black) --- */
 .dark {
   --vp-c-bg: #020617;
   --vp-c-bg-soft: #0f172a;
@@ -28,116 +35,147 @@
   --vp-c-text-2: #94a3b8;
   --vp-c-text-3: #64748b;
   --vp-c-border: rgba(255, 255, 255, 0.1);
+  
+  /* 深色模式下的代码块背景 */
+  --vp-code-block-bg: #0b0f1a;
 }
 
 /* ============================================================
-   2. 首页 Hero 区域美化
+   2. 首页 Hero 区域 (Modern Minimalist)
    ============================================================ */
 .VPHero.has-image .container {
-  padding-top: 48px;
+  padding-top: 64px;
 }
 
 .VPHero .name {
-  background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-next) 100%);
+  background: linear-gradient(to right, var(--vp-c-brand-1), var(--vp-c-brand-next));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.2));
-}
-
-/* 背景装饰光晕 */
-.VPHero::before {
-  content: "";
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-  z-index: -1;
-  filter: blur(80px);
-  pointer-events: none;
+  font-weight: 900;
+  letter-spacing: -0.04em;
 }
 
 /* ============================================================
-   3. 首页卡片 (Features) 样式
+   3. 现代卡片设计
    ============================================================ */
 .VPFeature {
   border: 1px solid var(--vp-c-border) !important;
   background-color: var(--vp-c-bg-soft) !important;
-  border-radius: 20px !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 24px !important;
+  padding: 32px !important;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
 }
 
 .VPFeature:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   border-color: var(--vp-c-brand-1) !important;
-  box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.2);
+  box-shadow: var(--shadow-lg) !important;
   background-color: var(--vp-c-bg) !important;
 }
 
-.VPFeature .icon {
-  background-color: rgba(139, 92, 246, 0.1) !important;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-}
-
 /* ============================================================
-   4. 文章正文样式优化
+   4. 标题系统排版优化 (Typography 4.0 - 纯净排版)
    ============================================================ */
-.vp-doc div[class*="language-"] {
-  border-radius: 14px;
-  border: 1px solid var(--vp-c-border);
-  margin: 24px 0;
+
+/* 一级标题：端庄大气 */
+.vp-doc h1 {
+  font-size: 2.8rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  color: var(--vp-c-text-1);
+  margin-bottom: 2.5rem;
+  line-height: 1.1;
 }
 
-.vp-doc blockquote {
-  border-left: 4px solid var(--vp-c-brand-1);
-  background-color: var(--vp-c-bg-soft);
-  border-radius: 4px 12px 12px 4px;
-  padding: 16px 24px;
-  margin: 24px 0;
-  font-style: italic;
+/* 二级标题：彻底移除所有装饰线，确保上下完全纯净 */
+.vp-doc h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-top: 4rem;
+  margin-bottom: 1.25rem;
+  padding: 0;
+  border: none !important; /* 强制移除默认主题可能存在的上/下边框线 */
+  letter-spacing: -0.02em;
+  color: var(--vp-c-text-1);
+}
+
+/* 三级标题：使用品牌色进行视觉区分，保持纯净 */
+.vp-doc h3 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--vp-c-brand-1); /* 紫罗兰色高亮 */
+  letter-spacing: -0.01em;
+}
+
+/* 四级标题：微章（Badge）风格，用于强调小细节 */
+.vp-doc h4 {
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--vp-c-text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
-.vp-doc p, .vp-doc li {
-  line-height: 1.8;
-  letter-spacing: 0.015em;
-  margin-bottom: 1.2em;
+/* 锚点图标：只有鼠标悬停时才隐约可见 */
+.header-anchor {
+  float: left;
+  margin-left: -0.85em;
+  padding-right: 0.23em;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: var(--vp-c-brand-1) !important;
+}
+
+h2:hover .header-anchor,
+h3:hover .header-anchor {
+  opacity: 0.5;
 }
 
 /* ============================================================
-   5. 导航栏与侧边栏
+   5. 正文内容
+   ============================================================ */
+.vp-doc p, .vp-doc li {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--vp-c-text-2);
+  margin-bottom: 1.5em;
+}
+
+/* 代码块：跟随主题色变化 */
+.vp-doc div[class*="language-"] {
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-border);
+  margin: 2rem 0;
+  background-color: var(--vp-code-block-bg) !important;
+  transition: background-color 0.3s ease;
+}
+
+/* 引用块：极简风格 */
+.vp-doc blockquote {
+  border: none;
+  background-color: var(--vp-c-bg-soft);
+  border-left: 2px solid var(--vp-c-brand-1);
+  margin: 2.5rem 0;
+  padding: 1rem 1.5rem;
+  color: var(--vp-c-text-2);
+  font-style: italic;
+}
+
+/* ============================================================
+   6. UI 交互优化
    ============================================================ */
 .VPNavBar {
-  background-color: var(--vp-c-bg) !important;
-  opacity: 0.95;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(var(--vp-c-bg-rgb), 0.7) !important;
+  backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid var(--vp-c-border) !important;
-}
-
-.VPSidebar {
-  background-color: var(--vp-c-bg) !important;
-  border-right: 1px solid var(--vp-c-border) !important;
 }
 
 .VPSidebarItem.level-0.active > .item > .link {
   color: var(--vp-c-brand-1);
   font-weight: 600;
-}
-
-/* 搜索框优化 */
-.VPNavBarSearch .DocSearch-Button {
-  border-radius: 12px;
-  background-color: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-border);
 }
