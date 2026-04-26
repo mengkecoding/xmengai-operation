@@ -1,8 +1,6 @@
-# xmengai.com 从零到一全栈自动化部署全纪实
+# 个人博客从零到一全栈自动化部署全纪实
 
 本白皮书完整记录了个人博客 `xmengai.com` 从环境搭建到实现“双路自动化部署”的所有技术细节。这不仅是一次建站记录，更是一场关于 Linux 权限、Docker 容器化及 CI/CD 流水线的实战演练。
-
----
 
 ## 一、 技术架构全景 (Tech Stack)
 
@@ -15,7 +13,6 @@
     * **主站**：云服务器 (通过 Nginx 托管)
     * **备站**：GitHub Pages (利用其全球 CDN 优势)
 
----
 
 ## 二、 核心部署流程图
 
@@ -27,7 +24,6 @@
     * **任务 A**：打包根路径版本，通过 SSH 同步至云服务器。
     * **任务 B**：打包子路径版本（通过 `--base` 参数），自动发布至 GitHub Pages。
 
----
 
 ## 三、 详细操作步骤回顾
 
@@ -294,7 +290,7 @@ docker compose up -d
 ```
 ## 四、GitHub 与云服务器连接测试指南（可选）
 
-#### 在本地项目中创建测试文件
+### 在本地项目中创建测试文件
 在你的博客项目根目录下，确保存在 `.github/workflows/test-ssh.yml` 文件。
 ```shell
 name: Test SSH Connection
@@ -320,7 +316,7 @@ jobs:
             docker --version
 ```
 
-#### 提交代码到 GitHub 
+### 提交代码到 GitHub 
 请按照以下顺序执行命令。
 ```shell
 # 1. 初始化 (如果还没做过)
@@ -341,7 +337,7 @@ git branch -M main
 # 5. 推送到 GitHub
 git push -u origin main
 ```
-#### 在 GitHub 页面手动运行测试
+### 在 GitHub 页面手动运行测试
 1. 打开你的 GitHub 仓库页面 `mengkecoding/xmeng-ai-blog`（**此处改为你的GitHub仓库**）。
 
 2. 点击顶部的 `Actions` 标签。
@@ -350,7 +346,7 @@ git push -u origin main
 
 4. 点击右侧的 `Run workflow` 下拉按钮，然后点击绿色的 `Run workflow` 按钮。
 
-#### 观察结果
+### 观察结果
 **如果圆圈变绿** (Success)：恭喜你！GitHub 已经成功通过 SSH 密钥登录到了你的服务器。
 
 **如果圆圈变红** (Failure)：请点击进入查看日志，看看是 `Connection timeout`（网络/防火墙问题）还是 `Permission denied`（密钥配置问题）。

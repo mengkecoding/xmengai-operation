@@ -16,7 +16,7 @@ export default defineConfig({
       { 
         text: '🤖 AI Agent', 
         items: [
-          { text: '入门指南', link: '/agent/intro' },
+          { text: '入门指南', link: '/agent/大模型应用开发极简入门' },
           { text: 'LangChain 实战', link: '/agent/langchain' },
           { text: '多智能体协同', link: '/agent/multi-agent' }
         ]
@@ -37,10 +37,13 @@ export default defineConfig({
     sidebar: {
       '/agent/': [
         {
-          text: 'AI Agent 实验室',
+          text: '入门指南',
           collapsed: false,
           items: [
-            { text: '什么是 Agent？', link: '/agent/intro' },
+            // { text: '什么是 Agent？', link: '/agent/intro' },
+            { text: '🔑 大模型开发：万能钥匙', link: '/agent/大模型应用开发极简入门' },
+            { text: '🎙️ Coze 实战：赋予灵魂', link: '/agent/CozeChatBot' },
+            { text: '🪄 提示工程：听懂心声', link: '/agent/prompt入门' },
             { text: 'Prompt 工程进阶', link: '/agent/prompts' },
             { text: 'RAG 检索增强实现', link: '/agent/rag' }
           ]
