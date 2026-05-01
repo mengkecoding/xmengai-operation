@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem *)",
+      "WebSearch",
+      "WebFetch(domain:vitepress.dev)",
+      "WebFetch(domain:vitepress.zhcndoc.com)",
+      "Bash(npx vitepress *)",
+      "Bash(curl -s http://localhost:5173/agent/AgentGuide.html)",
+      "Bash(grep -o '.\\\\{0,10\\\\}Gate.\\\\{0,10\\\\}' .vitepress/dist/assets/dev_VitePressBlog.md.BHmozSWT.js)",
+      "Bash(grep -o '.\\\\{0,20\\\\}Layout.\\\\{0,20\\\\}' .vitepress/dist/assets/app.CaL5DhW-.js)",
+      "Bash(grep -o '.\\\\{0,30\\\\}Layout.\\\\{0,20\\\\}' .vitepress/dist/assets/app.CaL5DhW-.js)",
+      "Bash(grep -o '.\\\\{0,20\\\\}doc-bottom.\\\\{0,20\\\\}' .vitepress/dist/assets/app.CaL5DhW-.js)",
+      "Bash(grep -o '.\\\\{0,40\\\\}Layout.\\\\{0,40\\\\}' .vitepress/dist/assets/app.CaL5DhW-.js)"
+    ]
+  }
+}

@@ -29,7 +29,7 @@ export default defineConfig({
           //{ text: '运维与部署 (Docker)', link: '/dev/ops' }
         ]
       },
-      { text: '🎓 求职八股', link: '/interview/index' }
+      { text: '🎓 求职八股', link: '/interview/agentbasic' }
     ],
 
     // 2. 侧边栏：针对不同板块显示不同的详细目录
@@ -57,12 +57,23 @@ export default defineConfig({
           items: [
             { text: '🗼 VitePress：搭建灯塔', link: '/dev/VitePressBlog' },
             { text: '🕊️ 个人博客：自动部署', link: '/dev/VitePressBlogAuto' },
-           
+            { text: 'Claude Code：DeepSeek 模型', link: '/dev/ClaudeCodeDeepSeek' },
 
           ]
         },
         
-      ]
+        
+      ],
+      '/interview/': [
+        {
+          text: 'agent',
+          collapsed: false,
+          items: [
+            { text: 'agentbasic', link: '/interview/agentbasic' },
+          ]
+        },
+        
+      ],
     },
 
     // 3. 社交链接
