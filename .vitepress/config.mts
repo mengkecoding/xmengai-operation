@@ -16,17 +16,16 @@ export default defineConfig({
       { 
         text: '🤖 AI Agent', 
         items: [
-          { text: '入门指南', link: '/agent/AgentGuide' },
-          //{ text: 'Agent 实战', link: '/agent/CozeChatBot' },
+          { text: '认知基础', link: '/agent/AgentGuide' },
+          { text: '实战进阶', link: '/agent/CozeChatBot' },
         ]
       },
       { 
         text: '💻 全栈之路', 
         items: [
           { text: '博客搭建', link: '/dev/VitePressBlog' },
-          //{ text: '后端架构 (Java/Python)', link: '/dev/backend' },
-          //{ text: '前端前沿 (Vue/React)', link: '/dev/frontend' },
-          //{ text: '运维与部署 (Docker)', link: '/dev/ops' }
+          { text: 'AI 开发提效', link: '/dev/ClaudeCodeDeepSeek' },
+          { text: '运维部署', link: '/dev/Docker' },
         ]
       },
       { text: '🎓 求职八股', link: '/interview/agentbasic' }
@@ -36,29 +35,62 @@ export default defineConfig({
     sidebar: {
       '/agent/': [
         {
-          text: '入门指南',
+          text: '认知基础',
           collapsed: false,
           items: [
-            // { text: '什么是 Agent？', link: '/agent/intro' },
             { text: '🔑 大模型开发：万能钥匙', link: '/agent/AgentGuide' },
             { text: '🪄 提示工程：听懂心声', link: '/agent/PromptGuide' },
+          ]
+        },
+        {
+          text: '实战进阶',
+          collapsed: false,
+          items: [
             { text: '🎙️ Coze 实战：赋予灵魂', link: '/agent/CozeChatBot' },
             { text: '🏰 Dify 部署：本地工坊', link: '/agent/InstallDify' },
             { text: '⏳ Dify 实战：文献助手', link: '/agent/DifyReadPaper' },
-            
-            
           ]
         },
-        
       ],
       '/dev/': [
         {
           text: '博客搭建',
+          collapsed: false,
           items: [
             { text: '🗼 VitePress：搭建灯塔', link: '/dev/VitePressBlog' },
             { text: '🕊️ 个人博客：自动部署', link: '/dev/VitePressBlogAuto' },
-            { text: 'Claude Code：DeepSeek 模型', link: '/dev/ClaudeCodeDeepSeek' },
+            { text: '☁️ 云服部署：初登云端', link: '/dev/HelloWorld' },
+            
 
+          ]
+        },
+        {
+          text: '⚡ AI 开发提效',
+          collapsed: false,
+          items: [
+            { text: 'Claude Code：DeepSeek 模型', link: '/dev/ClaudeCodeDeepSeek' },
+            { text: 'Codex：DeepSeek 模型', link: '/dev/CodexDeepSeek' },
+          ]
+        },
+        {
+          text: '运维部署',
+          collapsed: false,
+          items: [
+            { text: 'Docker入门', link: '/dev/Docker' },
+          ]
+        },
+        {
+          text: '前端前沿',
+          collapsed: false,
+          items: [
+            
+          ]
+        },
+        {
+          text: '后端架构',
+          collapsed: false,
+          items: [
+            
           ]
         },
         
