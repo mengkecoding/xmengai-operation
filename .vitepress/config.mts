@@ -79,20 +79,20 @@ export default defineConfig({
             { text: 'Docker入门', link: '/dev/Docker' },
           ]
         },
-        {
-          text: '前端前沿',
-          collapsed: false,
-          items: [
+        // {
+        //   text: '前端前沿',
+        //   collapsed: false,
+        //   items: [
             
-          ]
-        },
-        {
-          text: '后端架构',
-          collapsed: false,
-          items: [
+        //   ]
+        // },
+        // {
+        //   text: '后端架构',
+        //   collapsed: false,
+        //   items: [
             
-          ]
-        },
+        //   ]
+        // },
         
         
       ],
