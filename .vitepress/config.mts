@@ -28,7 +28,7 @@ export default defineConfig({
           { text: '运维部署', link: '/dev/Docker' },
         ]
       },
-      { text: '🎓 求职八股', link: '/interview/agentbasic' }
+      { text: '🎓 求职八股', link: '/interview/努力加更中' }
     ],
 
     // 2. 侧边栏：针对不同板块显示不同的详细目录
@@ -101,7 +101,8 @@ export default defineConfig({
           text: 'agent',
           collapsed: false,
           items: [
-            { text: 'agentbasic', link: '/interview/agentbasic' },
+            { text: '努力加更正中~', link: '/interview/努力加更中' },
+
           ]
         },
         

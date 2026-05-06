@@ -7,10 +7,11 @@
   --vp-c-brand-1: #8b5cf6;
   --vp-c-brand-2: #a78bfa;
   --vp-c-brand-3: #7c3aed;
-  --vp-c-brand-next: #06b6d4; 
+  --vp-c-brand-next: #06b6d4;
 
   /* --- 亮色模式 (Studio White) --- */
   --vp-c-bg: #ffffff;
+  --vp-c-bg-rgb: 255, 255, 255;
   --vp-c-bg-soft: #f8fafc;
   --vp-c-bg-mute: #f1f5f9;
   --vp-c-text-1: #0f172a;
@@ -37,6 +38,7 @@
   --vp-c-border: rgba(255, 255, 255, 0.1);
   
   /* 深色模式下的代码块背景 */
+  --vp-c-bg-rgb: 2, 6, 23;
   --vp-code-block-bg: #0b0f1a;
 }
 
