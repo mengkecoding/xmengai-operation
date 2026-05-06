@@ -38,16 +38,16 @@ export default defineConfig({
           text: '认知基础',
           collapsed: false,
           items: [
-            { text: '🔑 大模型开发：万能钥匙', link: '/agent/AgentGuide' },
-            { text: '🪄 提示工程：听懂心声', link: '/agent/PromptGuide' },
+            { text: '🔑 大模型开发入门', link: '/agent/AgentGuide' },
+            { text: '🪄 提示工程入门', link: '/agent/PromptGuide' },
           ]
         },
         {
           text: '实战进阶',
           collapsed: false,
           items: [
-            { text: '🎙️ Coze 实战：赋予灵魂', link: '/agent/CozeChatBot' },
-            { text: '🏰 Dify 部署：本地工坊', link: '/agent/InstallDify' },
+            { text: '🎙️ Coze 实战：公众号助手', link: '/agent/CozeChatBot' },
+            { text: '🏰 Dify 本地部署教程', link: '/agent/InstallDify' },
             { text: '⏳ Dify 实战：文献助手', link: '/agent/DifyReadPaper' },
           ]
         },
@@ -57,9 +57,9 @@ export default defineConfig({
           text: '博客搭建',
           collapsed: false,
           items: [
-            { text: '🗼 VitePress：搭建灯塔', link: '/dev/VitePressBlog' },
-            { text: '🕊️ 个人博客：自动部署', link: '/dev/VitePressBlogAuto' },
-            { text: '☁️ 云服部署：初登云端', link: '/dev/HelloWorld' },
+            { text: '🗼 VitePress搭建博客', link: '/dev/VitePressBlog' },
+            { text: '🕊️ VitePress搭建博客进阶版', link: '/dev/VitePressBlogAuto' },
+            { text: '☁️ 部署HelloWorld到云服务器', link: '/dev/HelloWorld' },
             
 
           ]
@@ -68,8 +68,8 @@ export default defineConfig({
           text: '⚡ AI 开发提效',
           collapsed: false,
           items: [
-            { text: 'Claude Code：DeepSeek 模型', link: '/dev/ClaudeCodeDeepSeek' },
-            { text: 'Codex：DeepSeek 模型', link: '/dev/CodexDeepSeek' },
+            { text: 'Claude接入 DeepSeekV4', link: '/dev/ClaudeCodeDeepSeek' },
+            { text: 'Codex接入DeepSeekV4', link: '/dev/CodexDeepSeek' },
           ]
         },
         {
