@@ -68,6 +68,7 @@ export default defineConfig({
           text: '⚡ AI 开发提效',
           collapsed: false,
           items: [
+            {text: 'Claude Code常用命令参考手册', link: '/dev/claude-code-commands-reference' },
             { text: 'Claude接入 DeepSeekV4', link: '/dev/ClaudeCodeDeepSeek' },
             { text: 'Codex接入DeepSeekV4', link: '/dev/CodexDeepSeek' },
           ]
