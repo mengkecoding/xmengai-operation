@@ -47,6 +47,6 @@
 
 整理这些资料耗费了大量时间与心力，如果你需要**完整版**，请通过以下方式支持：
 
-> 🔗 购买完整资料：[www.xiaohongshu.com](https://www.xiaohongshu.com)
+> 🔗 购买完整资料：[http://xhslink.com/o/6w5FuE9DKGZ](http://xhslink.com/o/6w5FuE9DKGZ)
 
 感谢你的理解与支持 ❤️
