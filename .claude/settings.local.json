@@ -12,7 +12,9 @@
       "Bash(grep -o '.\\\\{0,30\\\\}Layout.\\\\{0,20\\\\}' .vitepress/dist/assets/app.CaL5DhW-.js)",
       "Bash(grep -o '.\\\\{0,20\\\\}doc-bottom.\\\\{0,20\\\\}' .vitepress/dist/assets/app.CaL5DhW-.js)",
       "Bash(grep -o '.\\\\{0,40\\\\}Layout.\\\\{0,40\\\\}' .vitepress/dist/assets/app.CaL5DhW-.js)",
-      "Bash(Select-Object -First 50)"
+      "Bash(Select-Object -First 50)",
+      "PowerShell(Get-ChildItem \"D:\\\\1-project\\\\2-小孟的技术笔记\\\\xmengai.com-引流\\\\interview\\\\frontend\" | ForEach-Object { $lines = \\(Get-Content $_.FullName\\).Count; $first3 = \\(Get-Content $_.FullName -TotalCount 3\\) -join \" | \"; Write-Output \"$\\($_.Name\\): $lines lines | $first3\" })",
+      "Bash(npm run *)"
     ]
   }
 }
