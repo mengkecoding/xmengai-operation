@@ -184,8 +184,8 @@ export default defineConfig({
 
     // 4. 文档底部页脚
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2024-present xmengai.com'
+      message: '<a href="https://beian.miit.gov.cn/" target="_blank">辽ICP备2025056581号-2</a>',
+      copyright: 'Copyright © 2026-present xmengai.com'
     },
 
     // 5. 搜索功能（VitePress 自带的本地搜索）
