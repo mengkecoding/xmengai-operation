@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "xmengai.com",
-  description: "AI 开发提效 · Agent 实战 · 面试八股",
+  description: "AI 工具链 · Agent 实战 · 全栈开发 · 求职八股",
   // 保持根目录部署
   base: '/',
   
@@ -14,18 +14,11 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '⚡ AI 开发提效',
+        text: '📖 技术博客',
         items: [
-          { text: 'AI 编码工具', link: '/dev/ClaudeCodeDeepSeek' },
-          { text: '运维部署', link: '/dev/Docker' },
-          { text: '博客搭建', link: '/dev/VitePressBlog' },
-        ]
-      },
-      {
-        text: '🧠 AI Agent 实战',
-        items: [
-          { text: '认知基础', link: '/agent/AgentGuide' },
-          { text: '实战进阶', link: '/agent/CozeChatBot' },
+          { text: '🛠️ AI 工具链', link: '/dev/ClaudeCodeDeepSeek' },
+          { text: '🧠 Agent 实战', link: '/agent/AgentGuide' },
+          { text: '🏗️ 全栈开发', link: '/dev/VitePressBlog' },
         ]
       },
       { text: '🎓 求职八股', link: '/interview/ai_agent/' }
@@ -35,67 +28,69 @@ export default defineConfig({
     sidebar: {
       '/agent/': [
         {
-          text: '认知基础',
+          text: '🛠️ AI 工具链',
           collapsed: false,
           items: [
-            { text: '🔑 大模型开发入门', link: '/agent/AgentGuide' },
-            { text: '🪄 提示工程入门', link: '/agent/PromptGuide' },
+            { text: 'Claude Code 接入 DeepSeek', link: '/dev/ClaudeCodeDeepSeek' },
+            { text: 'Codex 接入 DeepSeek', link: '/dev/CodexDeepSeek' },
+            { text: 'Claude Code 命令手册', link: '/dev/claude-code-commands-reference' },
+            { text: 'Hermes + 微信 AI 接入', link: '/dev/hermes-wechat-setup-guide' },
+            { text: 'Coze 实战：公众号助手', link: '/agent/CozeChatBot' },
+            { text: 'Dify 本地部署', link: '/agent/InstallDify' },
+            { text: 'Dify 文献助手', link: '/agent/DifyReadPaper' },
           ]
         },
         {
-          text: '实战进阶',
+          text: '🧠 Agent 实战',
           collapsed: false,
           items: [
-            { text: '🎙️ Coze 实战：公众号助手', link: '/agent/CozeChatBot' },
-            { text: '🏰 Dify 本地部署教程', link: '/agent/InstallDify' },
-            { text: '⏳ Dify 实战：文献助手', link: '/agent/DifyReadPaper' },
+            { text: '大模型开发入门', link: '/agent/AgentGuide' },
+            { text: '提示工程入门', link: '/agent/PromptGuide' },
+          ]
+        },
+        {
+          text: '🏗️ 全栈开发',
+          collapsed: false,
+          items: [
+            { text: 'VitePress 搭建博客', link: '/dev/VitePressBlog' },
+            { text: 'VitePress 博客进阶', link: '/dev/VitePressBlogAuto' },
+            { text: 'Spring Boot 云部署', link: '/dev/HelloWorld' },
+            { text: 'Docker 入门', link: '/dev/Docker' },
           ]
         },
       ],
       '/dev/': [
         {
-          text: '博客搭建',
+          text: '🛠️ AI 工具链',
           collapsed: false,
           items: [
-            { text: '🗼 VitePress搭建博客', link: '/dev/VitePressBlog' },
-            { text: '🕊️ VitePress搭建博客进阶版', link: '/dev/VitePressBlogAuto' },
-            { text: '☁️ 部署HelloWorld到云服务器', link: '/dev/HelloWorld' },
-            
-
+            { text: 'Claude Code 接入 DeepSeek', link: '/dev/ClaudeCodeDeepSeek' },
+            { text: 'Codex 接入 DeepSeek', link: '/dev/CodexDeepSeek' },
+            { text: 'Claude Code 命令手册', link: '/dev/claude-code-commands-reference' },
+            { text: 'Hermes + 微信 AI 接入', link: '/dev/hermes-wechat-setup-guide' },
+            { text: 'Coze 实战：公众号助手', link: '/agent/CozeChatBot' },
+            { text: 'Dify 本地部署', link: '/agent/InstallDify' },
+            { text: 'Dify 文献助手', link: '/agent/DifyReadPaper' },
           ]
         },
         {
-          text: 'AI 编码工具',
+          text: '🧠 Agent 实战',
           collapsed: false,
           items: [
-            {text: 'Claude Code常用命令参考手册', link: '/dev/claude-code-commands-reference' },
-            { text: 'Claude接入 DeepSeekV4', link: '/dev/ClaudeCodeDeepSeek' },
-            { text: 'Codex接入DeepSeekV4', link: '/dev/CodexDeepSeek' },
+            { text: '大模型开发入门', link: '/agent/AgentGuide' },
+            { text: '提示工程入门', link: '/agent/PromptGuide' },
           ]
         },
         {
-          text: '运维部署',
+          text: '🏗️ 全栈开发',
           collapsed: false,
           items: [
-            { text: 'Docker入门', link: '/dev/Docker' },
+            { text: 'VitePress 搭建博客', link: '/dev/VitePressBlog' },
+            { text: 'VitePress 博客进阶', link: '/dev/VitePressBlogAuto' },
+            { text: 'Spring Boot 云部署', link: '/dev/HelloWorld' },
+            { text: 'Docker 入门', link: '/dev/Docker' },
           ]
         },
-        // {
-        //   text: '前端前沿',
-        //   collapsed: false,
-        //   items: [
-            
-        //   ]
-        // },
-        // {
-        //   text: '后端架构',
-        //   collapsed: false,
-        //   items: [
-            
-        //   ]
-        // },
-        
-        
       ],
       '/interview/': [
         {
