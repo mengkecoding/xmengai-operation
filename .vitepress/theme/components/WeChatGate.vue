@@ -62,14 +62,14 @@ function applyClip() {
   return true
 }
 
-function removeClip() {
+function removeClip(keepGate = false) {
   if (!contentEl) return
   contentEl.style.maxHeight       = originalStyles.maxHeight
   contentEl.style.overflow        = originalStyles.overflow
   contentEl.style.maskImage       = originalStyles.maskImage
   contentEl.style.WebkitMaskImage = originalStyles.WebkitMaskImage
   isClipped.value = false
-  showGate.value  = false
+  if (!keepGate) showGate.value = false
 }
 
 function pollClip(maxAttempts = 20) {
@@ -137,7 +137,7 @@ onUnmounted(() => {
 function onResize() {
   if (isUnlocked.value || !isClipped.value) return
   if (resizeTimer) clearTimeout(resizeTimer)
-  resizeTimer = setTimeout(() => { removeClip(); nextTick(() => pollClip()) }, 300)
+  resizeTimer = setTimeout(() => { removeClip(true); nextTick(() => pollClip()) }, 300)
 }
 
 watch(() => route.path, () => { removeClip(); nextTick(() => checkPage()) })
