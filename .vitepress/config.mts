@@ -55,6 +55,7 @@ export default defineConfig({
             { text: 'VitePress 搭建博客', link: '/dev/VitePressBlog' },
             { text: 'VitePress 博客进阶', link: '/dev/VitePressBlogAuto' },
             { text: 'Spring Boot 云部署', link: '/dev/HelloWorld' },
+            { text: '博客-黑暗森林模拟器', link: '/dev/博客-黑暗森林模拟器' },
             { text: 'Docker 入门', link: '/dev/Docker' },
           ]
         },
@@ -88,6 +89,7 @@ export default defineConfig({
             { text: 'VitePress 搭建博客', link: '/dev/VitePressBlog' },
             { text: 'VitePress 博客进阶', link: '/dev/VitePressBlogAuto' },
             { text: 'Spring Boot 云部署', link: '/dev/HelloWorld' },
+            { text: '博客-黑暗森林模拟器', link: '/dev/博客-黑暗森林模拟器' },
             { text: 'Docker 入门', link: '/dev/Docker' },
           ]
         },
